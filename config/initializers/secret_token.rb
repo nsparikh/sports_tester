@@ -8,5 +8,19 @@
 # You can use `rake secret` to generate a secure secret key.
 
 # Make sure your secret_key_base is kept private
-# if you're sharing your code publicly.
-SportsTester::Application.config.secret_key_base = '455abfb9f427fba37c410e05df8806302e759e6a1aa62d3b9c49c7e587f931d750a52c23cf21d977fd7366061fb0c26a04ab5ea18f17dccd249750fedb0813d9'
+# if you're sharing your code publicly.require 'securerandom'
+
+def secure_token
+	token_file = Rails.root.join('.secret')
+	if File.exist?(token_file)
+		# Use the existing token.
+		File.read(token_file).chomp
+	else
+		# Generate a new token and store it in token_file.
+		token = SecureRandom.hex(64)
+		File.write(token_file, token)
+		token
+	end
+end
+
+SportsTester::Application.config.secret_key_base = secure_token

@@ -63,8 +63,12 @@ button:active {
 	font-family: 'Denk One', sans-serif;
 	font-size: 18px;
 	text-align: center;
+	text-shadow:1px 1px 0px #ffffff;
+	text-decoration: none;
+	color: black;
 
 	margin: 10px;
+	padding: 10px;
 
 	-moz-box-shadow: inset 0px 1px 0px 0px white;
 	-webkit-box-shadow: inset 0px 1px 0px 0px white;
@@ -78,8 +82,6 @@ button:active {
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, $butGrayLight), color-stop(1, $butGrayMed));
 	background: -moz-linear-gradient(center top, $butGrayLight 5%, $butGrayMed 100%);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
-
-	text-shadow:1px 1px 0px #ffffff;
 }
 .button:hover {
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, $butGrayMed), color-stop(1, $butGrayLight));
@@ -118,7 +120,8 @@ button:active {
 /* Team info styling */
 
 .team-container {
-	width: 35%;
+	width: 300px;
+	height: 220px;
 	margin: 10px;
 	display: inline-block;
 	text-align: center;
@@ -140,7 +143,38 @@ button:active {
 	text-align: left;
 	font-size: 18px;
 
-	margin: 0px 0px 10px 10px;
+	margin: 0px 0px 20px 10px;
 	padding: 0px;
+}
+
+/* Poll Form */
+.form-container {
+	padding: 0;
+	width: 500px;
+	margin: 20px auto;
+	font-size: 18px;
+	
+	input {
+		font-family: 'Denk One', sans-serif;
+		width: 180px;
+		height: 25px;
+		font-size: 18px;
+
+		margin-bottom: 5px;
+	}
+	
+	label {
+		text-align: left;
+		float: left;
+		width: 250px;
+		height: 25px;
+
+		margin-bottom: 5px;
+	}
+
+	.button {
+		height: 30px;
+	}
+	
 }
 

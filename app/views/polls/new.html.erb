@@ -1,2 +1,51 @@
-<h1>Polls#new</h1>
-<p>Find me in app/views/polls/new.html.erb</p>
+
+<div class="poll-container">
+	<h1>New Poll Question</h1>
+
+	<div class="form-container">
+	  <%= form_for(@poll) do |f| %>
+
+	  	<%= f.label "Question ID:" %>
+	    <%= f.text_field :id %><br/><br/>
+
+		<%= f.label "Team A Name:" %>
+	    <%= f.text_field :teamAName %><br/>
+
+	    <%= f.label "Team A Wins:" %>
+	    <%= f.text_field :teamAWins %><br/>
+
+	    <%= f.label "Team A Losses:" %>
+	    <%= f.text_field :teamALosses %><br/>
+
+	    <%= f.label "Team A Points For:" %>
+	    <%= f.text_field :teamAPointsFor %><br/>
+
+	    <%= f.label "Team A Points Against:" %>
+	    <%= f.text_field :teamAPointsAgainst %><br/>
+
+	    <%= f.label "Team A Location (Home/Away):" %>
+	    <%= f.text_field :teamALocation %><br/><br/>
+
+	    <%= f.label "Team B Name:" %>
+	    <%= f.text_field :teamBName %><br/>
+
+	    <%= f.label "Team B Wins:" %>
+	    <%= f.text_field :teamBWins %><br/>
+
+	    <%= f.label "Team B Losses:" %>
+	    <%= f.text_field :teamBLosses %><br/>
+
+	    <%= f.label "Team B Points For:" %>
+	    <%= f.text_field :teamBPointsFor %><br/>
+
+	    <%= f.label "Team B Points Against:" %>
+	    <%= f.text_field :teamBPointsAgainst %><br/>
+
+	    <%= f.label "Team B Location (Home/Away):" %>
+	    <%= f.text_field :teamBLocation %><br/><br/>
+
+	    <%= f.submit "Create", class: "button" %>
+	  <% end %>
+
+	</div>
+</div>

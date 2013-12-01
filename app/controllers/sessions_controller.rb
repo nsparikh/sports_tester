@@ -1,7 +1,4 @@
 class SessionsController < ApplicationController
-
-	require 'net/smtp'
-
 	def new
 		session[:filename] = create_file
 	end

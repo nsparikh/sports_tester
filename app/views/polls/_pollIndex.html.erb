@@ -1,5 +1,7 @@
 <h2 class="center">Poll Question <%= poll.id %></h2>
-<%= link_to "delete", poll, method: :delete, data: { confirm: "You sure?" } %>
+<div class="delete-container">
+	<%= link_to "delete", poll, method: :delete, data: { confirm: "You sure?" } %>
+</div>
 
 <div class="team-container">
 	<h2 class="team-header center"><%= poll.teamAName %></h2>

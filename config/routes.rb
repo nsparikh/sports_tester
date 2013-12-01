@@ -1,10 +1,12 @@
 SportsTester::Application.routes.draw do
   resources :polls
+  resources :sessions, only: [:new, :write_to_file, :destroy]
   
-  root to: 'static_pages#home'
-  match '/done', to: 'static_pages#done', via: 'get'
-
-  match '/write', to: 'polls#write_to_file', via: 'get'
+  root to: 'sessions#new'
+  match '/done', to: 'sessions#destroy', via: 'get'
+  match '/results', to: 'sessions#results', via: 'get'
+  
+  get 'write', to: 'sessions#write_to_file'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

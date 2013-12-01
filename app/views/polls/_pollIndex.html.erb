@@ -1,7 +1,5 @@
-<h1 class="center">Who do you think will win this matchup?</h1>
-<div id="image-container">
-	<%= image_tag "nfl.png" %>
-</div>
+<h2 class="center">Poll Question <%= poll.id %></h2>
+<%= link_to "delete", poll, method: :delete, data: { confirm: "You sure?" } %>
 
 <div class="team-container">
 	<h2 class="team-header center"><%= poll.teamAName %></h2>
@@ -11,9 +9,6 @@
 		<li>Total points against: <%= poll.teamAPointsAgainst %></li>
 		<li>Home or away?: <%= poll.teamALocation %></li>
 	</ul>
-
-	<%= link_to poll.teamAName+" will win", write_path(:pollQuestion => poll.id, 
-		:result => poll.teamAName), :class => "team-button button" %>
 </div>
 
 <div class="team-container">
@@ -24,7 +19,4 @@
 		<li>Total points against: <%= poll.teamBPointsAgainst %></li>
 		<li>Home or away?: <%= poll.teamBLocation %></li>
 	</ul>
-
-	<%= link_to poll.teamBName+" will win", write_path(:pollQuestion => poll.id, 
-		:result => poll.teamBName), :class => "team-button button" %>
 </div>

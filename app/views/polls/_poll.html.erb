@@ -1,0 +1,26 @@
+<h1 class="center">Who do you think will win this matchup?</h1>
+<div id="image-container">
+	<%= image_tag "nfl.png" %>
+</div>
+
+<div class="team-container">
+	<h2 class="team-header center"><%= poll.teamAName %></h2>
+	<ul class="team-stats-list">
+		<li>Overall season record: <%= poll.teamAWins %> - <%= poll.teamALosses %></li>
+		<li>Total points for: <%= poll.teamAPointsFor %></li>
+		<li>Total points against: <%= poll.teamAPointsAgainst %></li>
+		<li>Home or away?: <%= poll.teamALocation %></li>
+	</ul>
+	<button class="team-button">Team A will win</button>
+</div>
+
+<div class="team-container">
+	<h2 class="team-header center"><%= poll.teamBName %></h2>
+	<ul class="team-stats-list">
+		<li>Overall season record: <%= poll.teamBWins %> - <%= poll.teamBLosses %></li>
+		<li>Total points for: <%= poll.teamBPointsFor %></li>
+		<li>Total points against: <%= poll.teamBPointsAgainst %></li>
+		<li>Home or away?: <%= poll.teamBLocation %></li>
+	</ul>
+	<button class="team-button">Team B will win</button>
+</div>

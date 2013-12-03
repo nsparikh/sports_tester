@@ -1,15 +1,19 @@
 class SessionsController < ApplicationController
+
 	def new
-		session[:filename] = create_file
+		res_title = (Time.now.to_f * 1000).to_i.to_s
+		session[:res_title] = res_title
+		current_result = Response.new(:title => res_title)
+		current_result.save
 	end
 
 	def write_to_file
 		pollQuestion = params[:pollQuestion]
 		result = params[:result]
 
-		File.open(session[:filename], 'a') do |f|
-			f.puts "Question "+pollQuestion+": "+result
-		end
+		current_result = Response.find_by(title: session[:res_title])
+		current_result[("q"+pollQuestion).to_sym] = result
+		current_result.save
 
 		if pollQuestion.to_i < Poll.count
 			redirect_to '/polls/'+(pollQuestion.to_i+1).to_s
@@ -19,23 +23,12 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-		# TODO: send results somewhere
-	  	File.open('app/views/sessions/results.html.erb', 'a') do |f1| 
-  			f1.puts '<h2 class="center">'+session[:filename]+'</h2>'
-	  		File.open(session[:filename], 'r') do |f2|
-	  			while line = f2.gets
-	  				f1.puts '<p>'+line+'</p>'
-	  			end
-	  		end
-	  		f1.puts '<br/>'
-	  	end
+		current_result = Response.find_by(title: session[:res_title])
+		current_result.save
 	end
-
-	private
-		def create_file
-			filename = 'results/Results'+(Time.now.to_f * 1000).to_i.to_s+'.txt'
-		  	filename
-		end
 end
+
+
+
 
 

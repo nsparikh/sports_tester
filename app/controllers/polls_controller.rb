@@ -28,6 +28,10 @@ class PollsController < ApplicationController
 		redirect_to root_path
 	end
 
+	def responses
+		@responses = Response.paginate(page: params[:page])
+	end
+
 
 	private
 		def poll_params

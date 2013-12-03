@@ -1,6 +1,18 @@
 <h1 id="title" class="center">NFL Predictions</h1>
-<div id="image-container">
-	<%= image_tag "nfl.png" %>
+
+<div id="poll-info-container">
+	<p id="poll-info">
+		You will be presented with a series of 16 questions, each asking you to predict 
+		the outcome of a given football game. The second half of these matchups are 
+		labeled anonymously (without actual team names). Please answer each 
+		question using only the information presented on screen.<br/><br/>
+
+		This survey should take no more than 5 minutes to complete.
+	</p><br/>
 </div>
 
 <%= button_to "Begin", "/polls/1", :id => "begin-button", :class => "button", :method => :get  %>
+
+<div id="image-container">
+	<%= image_tag "nfl.png" %>
+</div>

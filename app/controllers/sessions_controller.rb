@@ -5,6 +5,8 @@ class SessionsController < ApplicationController
 		session[:res_title] = res_title
 		current_result = Response.new(:title => res_title)
 		current_result.save
+
+		session[:filename] = "results/" + res_title + ".txt"
 	end
 
 	def write_to_file
@@ -14,6 +16,10 @@ class SessionsController < ApplicationController
 		current_result = Response.find_by(title: session[:res_title])
 		current_result[("q"+pollQuestion).to_sym] = result
 		current_result.save
+
+		File.open(session[:filename], 'a') do |f|
+			f.write("Question " + pollQuestion.to_s + ": " + result + "\n")
+		end
 
 		if pollQuestion.to_i < Poll.count
 			redirect_to '/polls/'+(pollQuestion.to_i+1).to_s

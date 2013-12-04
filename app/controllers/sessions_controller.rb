@@ -6,9 +6,9 @@ class SessionsController < ApplicationController
 		current_result = Response.new(:title => res_title)
 		current_result.save
 
-		File.open('app/views/polls/results_alt.html.erb', 'a') do |f|
-			f.write("<br/>" + res_title + "<br/>")
-		end
+		#File.open('app/views/polls/results_alt.html.erb', 'a') do |f|
+		#	f.write("<br/>" + res_title + "<br/>")
+		#end
 	end
 
 	def write_to_file
@@ -19,9 +19,9 @@ class SessionsController < ApplicationController
 		current_result[("q"+pollQuestion).to_sym] = result
 		current_result.save
 
-		File.open('app/views/polls/results_alt.html.erb', 'a') do |f|
-			f.write("Question " + pollQuestion.to_s + ": " + result + "<br/>")
-		end
+		#File.open('app/views/polls/results_alt.html.erb', 'a') do |f|
+		#	f.write("Question " + pollQuestion.to_s + ": " + result + "<br/>")
+		#end
 
 
 		if pollQuestion.to_i < Poll.count

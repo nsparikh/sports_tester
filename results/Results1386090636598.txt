@@ -1,6 +1,0 @@
-Question 1: Team A1
-Question 1: Team A1
-Question 2: Team B2
-Question 2: Team B2
-Question 3: Team B3
-Question 3: Team B3

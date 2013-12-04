@@ -5,6 +5,7 @@ SportsTester::Application.routes.draw do
   root to: 'sessions#new'
   match '/done', to: 'sessions#destroy', via: 'get'
   match '/responses', to: 'polls#responses', via: 'get'
+  match '/results_alt', to: 'polls#results_alt', via: 'get'
   
   get 'write', to: 'sessions#write_to_file'
 

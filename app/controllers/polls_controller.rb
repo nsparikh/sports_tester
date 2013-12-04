@@ -32,6 +32,9 @@ class PollsController < ApplicationController
 		@responses = Response.paginate(page: params[:page])
 	end
 
+	def results_alt
+	end
+
 
 	private
 		def poll_params

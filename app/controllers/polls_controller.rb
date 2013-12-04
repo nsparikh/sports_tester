@@ -1,7 +1,7 @@
 class PollsController < ApplicationController
 
  	def index
-		@polls = Poll.paginate(page: params[:page])
+		@polls = Poll.all
   	end
 
 	def show
@@ -29,7 +29,7 @@ class PollsController < ApplicationController
 	end
 
 	def responses
-		@responses = Response.paginate(page: params[:page])
+		@responses = Response.all
 	end
 
 	def results_alt
